@@ -3,7 +3,7 @@ $(function() {
   var headTopmenu = $(".main-header");
 
   headerBottom.on("scroll", function() {
-    if (headerBottom.scrollTop() > 100) {
+    if (headerBottom.scrollTop() > 0) {
       headTopmenu.addClass("menu-down");
     } else {
       headTopmenu.removeClass("menu-down");
