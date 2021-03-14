@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/fontawesome-all.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script src="assets/js/vue.js"></script>
   </head>
   <body>
     <div class="preloader">
@@ -28,27 +29,27 @@
         <div class="container">
           <nav class="top-menu navbar navbar-expand-lg">
             <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarTogglerDemo01"
-              aria-controls="navbarTogglerDemo01"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarTogglerDemo01"
+                    aria-controls="navbarTogglerDemo01"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
             >
               <span>
                 <img alt="menu" src="assets/image/menu.svg">
               </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="#home">
                 <span class="logo-theme">Nhile</span>
               </a>
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact-me.html">Contact Me</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact Me</a></li>
               </ul>
             </div>
           </nav>
@@ -82,12 +83,140 @@
     </section>
     <!--End home section-->
 
-    <!-- Begin video home -->
-    <div class="video-filter">
-      <video playsinline autoplay muted loop poster="assets/image/Road-Tripping.jpg" id="bgvid">
-        <source src="assets/image/Road-Tripping.mp4" type="video/mp4">
-      </video>
+    <div id="app">
+      <!-- start portfolio -->
+      <section id="portfolio" class="section-padding" data-aos="fade-up">
+        <div class="container">
+          <div class="portfolio-section">
+            <div class="row">
+              <!--Begin Port Item-->
+              <div v-for="(item, index) in portfolios" :key="index" class="port-item col-12 col-md-3">
+                <a :href="item.link" target="_blank">
+                  <div class="card">
+                    <img
+                            class="card-img-top"
+                            :src="item.img"
+                            :alt="item.name"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">{{ item.name }}</h5>
+                      <div class="card-text">
+                        <span class="badge badge-primary" v-for="(tag, tagIndex) in item.tags" :key="tagIndex">
+                          #{{ tag }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!--End Port Item-->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End portfolio -->
+
+      <!--Start about me-->
+      <section id="about" class="about section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="about-us-left">
+                <h4 class="about-title">About <span>Me</span></h4>
+                <p class="about-subtitle"></p>
+                <div>
+                  <b class="text-black-50">Hello!</b>
+                  <p>
+                    Hello. My name is Le Thai Yen Nhi, and I am 25 years old. I got my Graphic Design degree from DPI center. I've started to develop my work towards UI design and user experience research since ....... Currently I have been at this job for over a year with many different projects with different user goals. I want to be able to progress to more in-depth user research in the next 4 years.
+                  </p>
+                </div>
+                <div class="about-btn">
+                  <a href="#contact">Contact Me</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="about-img">
+                <img
+                        class="img-fluid"
+                        src="assets/image/about/about-me.jpg"
+                        alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End about me-->
+
+      <!--Contact section start-->
+      <section id="contact"  class="section-padding" data-aos="fade-up">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="contact-sec">
+                <div class="contact-space">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="divi-title">
+                        <h4>Contact <span>ME</span></h4>
+                      </div>
+                      <div class="contact-detail">
+                        <div class="contact-detail-item">
+                          <div class="item-title text-primary font-weight-bold">Address</div>
+                          <div>Q10, TPHCM</div>
+                        </div>
+                        <div class="contact-detail-item">
+                          <div class="item-title text-primary font-weight-bold">Email</div>
+                          <div>
+                            <a href="mailto:nhilt2896@gmail.com"
+                            >nhilt2896@gmail.com</a
+                            >
+                          </div>
+                        </div>
+                        <div class="contact-detail-item">
+                          <div class="item-title text-primary font-weight-bold">Phone</div>
+                          <div><a href="tel:+84358465359">+843-5846-5359</a></div>
+                        </div>
+                        <div class="contact-detail-item">
+                          <div class="item-title text-primary font-weight-bold">Website</div>
+                          <div>
+                            <a href="https://nhilt.github.io" target="_blank"
+                            >https://nhilt.github.io</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="contact-map">
+                <iframe
+                        class="map"
+                        width="600"
+                        height="500"
+                        src="https://maps.google.com/maps?q=56%2F24%2F1%20To%20Hien%20Thanh&t=&z=19&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--Contact section end-->
     </div>
+
+    <!-- Begin video home -->
+<!--    <div class="video-filter">-->
+<!--      <video playsinline autoplay muted loop poster="assets/image/Road-Tripping.jpg" id="bgvid">-->
+<!--        <source src="assets/image/Road-Tripping.mp4" type="video/mp4">-->
+<!--      </video>-->
+<!--    </div>-->
     <!-- End video home -->
 
     <!-- All JS Here -->
