@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/nhilt/nhilt.github.io#readme",
   "dependencies": {
-    "serve": "^11.3.2",
+    "serve": "^14.1.1",
     "sw-precache": "^5.2.1"
   }
 }
